@@ -1,12 +1,14 @@
+/* Canvas properties etc. */
 const canvas = document.getElementById("canvas2")
 const ctx = canvas.getContext("2d")
 canvas.width = 350
 canvas.height = 350
 
+/* Declare variable and array. */
 const numberOfCircles = 30
 let circlesArray = []
 
-
+/* Define class Cricle. With constructor, of course. */
 class Circle {
   constructor() {
     this.x = Math.random() * canvas.width
@@ -15,7 +17,8 @@ class Circle {
     this.color = `rgb(0, ${Math.random() * 255}, 0)`
     this.grow = true
   }
-  
+
+  /* Method: update(). */
   update() {
 
     if (this.grow == true) {
@@ -35,6 +38,7 @@ class Circle {
     }
   }
 
+  /* Method: draw(). */
   draw() {
     ctx.beginPath()
     ctx.fillStyle = this.color
@@ -43,17 +47,21 @@ class Circle {
   }
 }
 
+/* Create particles to initialize. */
 function init() {
   for (let i = 0; i < numberOfCircles; i++) {
     circlesArray.push(new Circle)
   }
 }
 
+/* Animate with custom function. */
 function animate() {
   
+  /* Black on the background. */
   ctx.fillStyle = "black"
   ctx.fillRect(0, 0, canvas.width, canvas.height)
   
+  /* Circles everywhere. */
   for (let i = 0; i < circlesArray.length; i++) {
     circlesArray[i].update()
     circlesArray[i].draw()
@@ -63,11 +71,14 @@ function animate() {
     return
   }
 
+  /* Built-in function to animate. By recursion. */
   requestAnimationFrame(animate)
 }
 
+/* Variable. */
 let runAnimation = false
 
+/* Button to start animation. */
 const startButton = document.getElementById("start")
 startButton.addEventListener("click", () => {
   if (runAnimation == false) {
@@ -78,6 +89,7 @@ startButton.addEventListener("click", () => {
   }
 })
 
+/* Button to stop animation. */
 const stopButton = document.getElementById("stop")
 stopButton.addEventListener("click", () => {
   runAnimation = false

@@ -16,12 +16,20 @@
 }
 
 #canvas2 {
-  border: 2px solid black;
+  border: 0px solid black;
   display: block;
   margin: 20px auto;
   width: 350px;
   height: 350px;
   background-color: black;
+}
+
+#canvas3 {
+  border: 0px solid black;
+  display: block;
+  margin: 20px auto;
+  width: 640px;
+  height: 427px;
 }
 
 #buttons {
