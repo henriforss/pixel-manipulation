@@ -4,8 +4,8 @@ swansImage.src = "swans.png"
 swansImage.addEventListener("load", () => {
   const canvas = document.getElementById("canvas3")
   const ctx = canvas.getContext("2d")
-  const CANVAS_WIDTH = canvas.width = 640
-  const CANVAS_HEIGHT = canvas.height = 427
+  const CANVAS_WIDTH = canvas.width = 350
+  const CANVAS_HEIGHT = canvas.height = 234
 
   const numberOfSnowflakes = 100
   const numberOfSmallSnowflakes = 100
@@ -61,8 +61,8 @@ swansImage.addEventListener("load", () => {
       this.x = Math.random() * CANVAS_WIDTH
       this.y = Math.random() * CANVAS_HEIGHT
       this.z = Math.random() * 4
-      this.radiusX = Math.random() * 2 + 2 * this.z 
-      this.radiusY = Math.random() * 2 + 2 * this.z
+      this.radiusX = Math.random() + 1 * this.z 
+      this.radiusY = Math.random() + 1 * this.z
       this.rotation = Math.random()
       this.opacity = Math.random() * this.z
       this.color = `rgb(255, 255, 255, ${this.opacity})`
@@ -83,8 +83,8 @@ swansImage.addEventListener("load", () => {
         this.x = Math.random() * CANVAS_WIDTH
         this.y = 0
         this.z = Math.random() * 4
-        this.radiusX = Math.random() * 2 + 2 * this.z 
-        this.radiusY = Math.random() * 2 + 2 * this.z
+        this.radiusX = Math.random() + 1 * this.z 
+        this.radiusY = Math.random() + 1 * this.z
         this.opacity = Math.random() * this.z
         this.color = `rgb(255, 255, 255, ${this.opacity})`
         this.speed = this.z * 0.4
