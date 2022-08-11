@@ -32,6 +32,22 @@
   height: 234px;
 }
 
+#canvas4 {
+  border: 0px solid black;
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+  height: 622px;
+}
+
+#canvas5 {
+  border: 0px solid black;
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+  height: 620px;
+}
+
 #buttons {
   display: flex;
   margin: auto;
