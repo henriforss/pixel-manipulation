@@ -69,7 +69,7 @@ sunsetImage.addEventListener("load", () => {
     }
 
     if (cycles > 70) {
-      location.reload()
+      window.location.reload()
     }
 
     requestAnimationFrame(animate) // Comment out this one to stop animation
