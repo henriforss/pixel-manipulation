@@ -57,9 +57,7 @@ function drawSunset() {
 
     /* Class method. */
     draw() {
-      if (this.data != null) {
-        ctx.putImageData(this.data, this.x, this.y)
-      }
+      ctx.putImageData(this.data, this.x, this.y)
     }
   }
   
