@@ -7,12 +7,35 @@ const CANVAS_HEIGHT = canvas.height = 467
 /* Assign images. Small one for manipulation, larger for show. */
 const largeImage = new Image()
 largeImage.src = "sunset-large.png"
-
 const smallImage = new Image()
 smallImage.src = "sunset-small.png"
 
+/* Variable to control animation. */
+let readyToRun = true
+
+/* When page (mainly images) has loaded, execute functions. */
+window.addEventListener("load", () => {
+
+  /* Draw large image on screen. */
+  ctx.drawImage(largeImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+
+  /* Event listener to start animation. */
+  canvas.addEventListener("click", () => {
+    if (readyToRun) {
+      readyToRun = false
+      drawSunset()  
+    }
+  })
+
+  /* Event listener to reload page. */
+  canvas.addEventListener("dblclick", () => {
+    location.reload()
+  })
+})
+
 /* Define drawSunset(). */
 function drawSunset() {
+
   /* Draw smaller image on screen. */
   ctx.drawImage(smallImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
@@ -57,11 +80,12 @@ function drawSunset() {
     }
   }
     
-  /* Variabel to keep track of animation cycles. */
+  /* Variable to keep track of animation cycles. */
   let cycles = 0
   
-  /* Define animate(). */
+  /* Define animateSunset(). */
   function animateSunset() {
+
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
     
@@ -120,25 +144,3 @@ function drawText() {
 
   animateText()
 }
-
-/* Variable to control animation. */
-let readyToRun = true
-
-/* When page (mainly images) has loaded, execute functions. */
-window.addEventListener("load", () => {
-  /* Draw large image on screen. */
-  ctx.drawImage(largeImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-
-  /* Event listerner to start animation. */
-  canvas.addEventListener("click", () => {
-    if (readyToRun) {
-      readyToRun = false
-      drawSunset()  
-    }
-  })
-
-  /* Event listener to reload page. */
-  canvas.addEventListener("dblclick", () => {
-    location.reload()
-  })
-})
