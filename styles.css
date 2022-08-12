@@ -45,7 +45,15 @@
   display: block;
   margin: 20px auto;
   width: 350px;
-  height: 620px;
+  height: 467px;
+}
+
+#canvas6 {
+  border: 0px solid black;
+  display: block;
+  margin: 20px auto;
+  width: 350px;
+  height: 467px;
 }
 
 #buttons {

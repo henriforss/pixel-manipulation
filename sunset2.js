@@ -2,14 +2,18 @@
 const canvas = document.getElementById("canvas5")
 const ctx = canvas.getContext("2d")
 const CANVAS_WIDTH = canvas.width = 350
-const CANVAS_HEIGHT = canvas.height = 620
+const CANVAS_HEIGHT = canvas.height = 467
 
-/* Get image. */
+/* Get images. */
 const sunsetImage = new Image()
-sunsetImage.src = "sunset.png"
+sunsetImage.src = "sunset-small.png"
+
+const sunsetImageLarge = new Image()
+sunsetImageLarge.src = "sunset-large-resized.png"
+
 
 /* When image is loaded. */
-sunsetImage.addEventListener("load", () => {
+sunsetImageLarge.addEventListener("load", () => {
   /* Draw image on screen. */
   ctx.drawImage(sunsetImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
 
@@ -54,29 +58,39 @@ sunsetImage.addEventListener("load", () => {
     }
   }
 
+  console.log(tilesArray)
+
+  ctx.drawImage(sunsetImageLarge, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+
   /* Variabel to keep track of animation cycles. */
   let cycles = 0
 
   /* Define animate(). */
   function animate() {
-    cycles++
     ctx.fillStyle = "white"
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
-  
+    
     for (let i = 0; i < tilesArray.length; i++) {
       tilesArray[i].update()
       tilesArray[i].draw()
     }
-
-    if (cycles > 70) {
-      window.location.reload()
+    
+    if (cycles < 70) {
+      requestAnimationFrame(animate) // Comment out this one to stop animation
+    } else {
+      return
     }
-
-    requestAnimationFrame(animate) // Comment out this one to stop animation
+    
+    cycles++
   }
 
   /* Add event listener to run animation. */
   canvas.addEventListener("click", () => {
       animate()
   })
+
+  canvas.addEventListener("dblclick", () => {
+    location.reload()
+  })
+
 })
